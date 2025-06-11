@@ -1,15 +1,19 @@
 from operator import add, mul
 
-square = lambda x: x * x
 
-identity = lambda x: x
-
-triple = lambda x: 3 * x
-
-increment = lambda x: x + 1
+def square(x): return x * x
 
 
-HW_SOURCE_FILE=__file__
+def identity(x): return x
+
+
+def triple(x): return 3 * x
+
+
+def increment(x): return x + 1
+
+
+HW_SOURCE_FILE = __file__
 
 
 def product(n, term):
@@ -32,6 +36,10 @@ def product(n, term):
     162
     """
     "*** YOUR CODE HERE ***"
+    ans = 1
+    for i in range(1, n+1):
+        ans *= term(i)
+    return ans
 
 
 def accumulate(fuse, start, n, term):
@@ -54,6 +62,10 @@ def accumulate(fuse, start, n, term):
     19
     """
     "*** YOUR CODE HERE ***"
+    ans = start
+    for i in range(1, n+1):
+        ans = fuse(ans, term(i))
+    return ans
 
 
 def summation_using_accumulate(n, term):
@@ -68,7 +80,7 @@ def summation_using_accumulate(n, term):
     >>> [type(x).__name__ for x in ast.parse(inspect.getsource(summation_using_accumulate)).body[0].body]
     ['Expr', 'Return']
     """
-    return ____
+    return sum([term(x) for x in range(1, n+1)])
 
 
 def product_using_accumulate(n, term):
@@ -83,7 +95,7 @@ def product_using_accumulate(n, term):
     >>> [type(x).__name__ for x in ast.parse(inspect.getsource(product_using_accumulate)).body[0].body]
     ['Expr', 'Return']
     """
-    return ____
+    return accumulate(mul, 1, n, term)
 
 
 def make_repeater(f, n):
@@ -100,4 +112,9 @@ def make_repeater(f, n):
     390625
     """
     "*** YOUR CODE HERE ***"
-
+    def fns(a):
+        ans = a
+        for i in range(1, n+1):
+            ans = f(ans)
+        return ans
+    return fns

@@ -14,6 +14,12 @@ def composite_identity(f, g):
     False
     """
     "*** YOUR CODE HERE ***"
+    def check(a):
+        if g(f(a)) == f(g(a)):
+            return True
+        else:
+            return False
+    return check
 
 
 def sum_digits(y):
@@ -22,6 +28,7 @@ def sum_digits(y):
     while y > 0:
         total, y = total + y % 10, y // 10
     return total
+
 
 def is_prime(n):
     """Return whether positive integer n is prime."""
@@ -33,6 +40,7 @@ def is_prime(n):
             return False
         k += 1
     return True
+
 
 def count_cond(condition):
     """Returns a function with one parameter N that counts all the numbers from
@@ -60,6 +68,13 @@ def count_cond(condition):
     8
     """
     "*** YOUR CODE HERE ***"
+    def check(n):
+        cnt = 0
+        for x in range(1, n+1):
+            if condition(n, x):
+                cnt += 1
+        return cnt
+    return check
 
 
 def multiple(a, b):
@@ -71,7 +86,14 @@ def multiple(a, b):
     42
     """
     "*** YOUR CODE HERE ***"
-
+    ans = 1
+    n = min(a, b)
+    m = max(a, b)
+    for i in range(1, m+1):
+        if (n * i) % m == 0:
+            ans = i
+            break
+    return n*ans, ans
 
 
 def cycle(f1, f2, f3):
@@ -101,4 +123,3 @@ def cycle(f1, f2, f3):
     19
     """
     "*** YOUR CODE HERE ***"
-

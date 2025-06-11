@@ -1,0 +1,4 @@
+'a_plus_abs_b-correct', (0, 66)
+'two_of_three-correct', (512, 66)
+'largest_factor-correct', (1024, 66)
+'hailstone-correct', (1536, 66)

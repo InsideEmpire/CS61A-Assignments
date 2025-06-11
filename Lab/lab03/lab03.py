@@ -1,3 +1,4 @@
+from math import sqrt
 LAB_SOURCE_FILE = __file__
 
 
@@ -49,8 +50,6 @@ def close_list(s, k):
     """
     return [___ for i in range(len(s)) if ___]
 
-
-from math import sqrt
 
 def squares(s):
     """Returns a new list containing square roots of the elements of the
@@ -122,4 +121,3 @@ def make_onion(f, g):
         else:
             return can_reach(____, ____, limit - 1) or can_reach(____, ____, limit - 1)
     return can_reach
-

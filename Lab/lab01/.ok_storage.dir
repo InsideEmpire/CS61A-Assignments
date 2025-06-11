@@ -1,0 +1,6 @@
+'digit-correct', (0, 66)
+'middle-correct', (512, 66)
+'falling-correct', (1024, 66)
+'divisible_by_k-correct', (1536, 66)
+'sum_digits-correct', (2048, 66)
+'double_eights-correct', (2560, 66)
