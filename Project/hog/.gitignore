@@ -1,0 +1,9 @@
+# Python Caches
+__pycache__/
+*.pyc
+
+# CS 61A Testing Files
+.ok_consent
+.ok_disabled
+.ok_history
+.ok_storage*
