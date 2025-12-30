@@ -14,21 +14,16 @@ test = {
           ...        return 'cake'
           ...    return pie
           >>> chocolate = cake()
-          0127137631d037670fa6a894e2d548ee
-          # locked
+          beets
           >>> chocolate
-          4f02258d689b15b516174b381ad2aef8
-          # locked
+          Function
           >>> chocolate()
-          28f5a700252060ec3bbc4bf4ca744c56
-          7fccab88a7c3c0cbffe0142e723d1984
-          # locked
+          sweets
+          'cake'
           >>> more_chocolate, more_cake = chocolate(), cake
-          28f5a700252060ec3bbc4bf4ca744c56
-          # locked
+          sweets
           >>> more_chocolate
-          7fccab88a7c3c0cbffe0142e723d1984
-          # locked
+          'cake'
           >>> # Reminder: cake, more_cake, and chocolate were defined/assigned in the code above! 
           >>> # It might be helpful to refer to their definitions on the assignment website so you don't have to scroll as much!
           >>> def snake(x, y):
@@ -37,19 +32,16 @@ test = {
           ...    else:
           ...        return x + y
           >>> snake(10, 20)
-          4f02258d689b15b516174b381ad2aef8
-          # locked
+          Function
           >>> snake(10, 20)()
-          28f5a700252060ec3bbc4bf4ca744c56
-          7fccab88a7c3c0cbffe0142e723d1984
-          # locked
+          sweets
+          'cake'
           >>> cake = 'cake'
           >>> snake(10, 20)
-          c06666e98ec36af7add28e636f1488ee
-          # locked
+          30
           """,
           'hidden': False,
-          'locked': True,
+          'locked': False,
           'multiline': False
         }
       ],

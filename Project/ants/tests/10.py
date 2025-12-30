@@ -5,7 +5,7 @@ test = {
     {
       'cases': [
         {
-          'answer': 'adaf2d9fa40056824000d27086ae3288',
+          'answer': 'If the insect is not waterproof, its health is reduced to 0. Otherwise, nothing happens.',
           'choices': [
             r"""
             If the insect is not waterproof, its health is reduced to 0.
@@ -16,12 +16,12 @@ test = {
             'The insect goes for a swim.'
           ],
           'hidden': False,
-          'locked': True,
+          'locked': False,
           'multiline': False,
           'question': 'What happens when an insect is added to a Water Place?'
         },
         {
-          'answer': 'c2c702fdace349525eb19020c3dde5e2',
+          'answer': 'class, all ants of a subclass should either be waterproof or not',
           'choices': [
             'class, all ants of a subclass should either be waterproof or not',
             'class, all ants should be waterproof',
@@ -29,12 +29,12 @@ test = {
             'instance, the is_waterproof attribute depends on the given place of an ant'
           ],
           'hidden': False,
-          'locked': True,
+          'locked': False,
           'multiline': False,
           'question': 'What type of attribute should "is_waterproof" be?'
         },
         {
-          'answer': 'd0b5a58a4030ecd64dc80332c297e8dd',
+          'answer': 'reduce_health, in the Insect class',
           'choices': [
             'reduce_health, in the Insect class',
             'remove_insect, in the Place class',
@@ -42,7 +42,7 @@ test = {
             'remove_ant, in the GameState class'
           ],
           'hidden': False,
-          'locked': True,
+          'locked': False,
           'multiline': False,
           'question': r"""
           What method deals damage to an Insect and removes it from its place
@@ -84,14 +84,12 @@ test = {
           >>> test_water = Water('Water Test2')
           >>> test_water.add_insect(test_bee)
           >>> test_bee.health
-          73b94a1326ae2e803c3421016112207b
-          # locked
+          0
           >>> len(test_water.bees)
-          73b94a1326ae2e803c3421016112207b
-          # locked
+          0
           """,
           'hidden': False,
-          'locked': True,
+          'locked': False,
           'multiline': False
         },
         {
@@ -101,14 +99,12 @@ test = {
           >>> test_water = Water('Water Test3')
           >>> test_water.add_insect(test_bee)
           >>> test_bee.health
-          d89cf7c79d5a479b0f636734143ed5e6
-          # locked
+          1
           >>> test_bee in test_water.bees
-          c7a88a0ffd3aef026b98eef6e7557da3
-          # locked
+          True
           """,
           'hidden': False,
-          'locked': True,
+          'locked': False,
           'multiline': False
         },
         {

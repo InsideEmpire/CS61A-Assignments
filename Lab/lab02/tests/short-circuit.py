@@ -7,20 +7,16 @@ test = {
         {
           'code': r"""
           >>> True and 13
-          7edad8d629f285ca759c95da679fd452
-          # locked
+          13
           >>> False or 0
-          b33f256984c474b4181f5512601c4a70
-          # locked
+          0
           >>> not 10
-          30612a20c5efd351c827ed74fa104597
-          # locked
+          False
           >>> not None
-          2363e0cf1475978bc3373849c76acf77
-          # locked
+          True
           """,
           'hidden': False,
-          'locked': True,
+          'locked': False,
           'multiline': False
         }
       ],
@@ -32,34 +28,28 @@ test = {
         {
           'code': r"""
           >>> True and 1 / 0  # If this errors, just type Error.
-          ab06d135c02ab203238caafbf77976ce
-          # locked
+          Error
           >>> True or 1 / 0  # If this errors, just type Error.
-          2363e0cf1475978bc3373849c76acf77
-          # locked
+          True
           >>> -1 and 1 > 0 # If this errors, just type Error.
-          2363e0cf1475978bc3373849c76acf77
-          # locked
+          True
           >>> -1 or 5
-          6b4205ba72f3ab35b0da9ecb25ba19dc
-          # locked
+          -1
           >>> (1 + 1) and 1  # If this errors, just type Error. If this is blank, just type Nothing.
-          cf2e1ad2c681425ba709dfa2ee9bde0f
-          # locked
+          1
           """,
           'hidden': False,
-          'locked': True,
+          'locked': False,
           'multiline': False
         },
         {
           'code': r"""
           >>> print(3) or ""
-          0f10194daf41a11a30f4adc80d959f28
-          c8d065903354f375f887443cb1120aca
-          # locked
+          3
+          ''
           """,
           'hidden': False,
-          'locked': True,
+          'locked': False,
           'multiline': True
         }
       ],
@@ -78,17 +68,14 @@ test = {
           ...     else:
           ...         return ""
           >>> 0 or f(1)
-          828dc7251d7bf60d6c72dc1d43e8a98f
-          # locked
+          'positive'
           >>> f(0) or f(-1)
-          529cfd7a836a98e3819be429f4f84894
-          # locked
+          'zero'
           >>> f(0) and f(-1)
-          c8d065903354f375f887443cb1120aca
-          # locked
+          ''
           """,
           'hidden': False,
-          'locked': True,
+          'locked': False,
           'multiline': False
         }
       ],

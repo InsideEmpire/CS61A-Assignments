@@ -5,5 +5,5 @@ def twenty_twenty_four():
     >>> twenty_twenty_four()
     2024
     """
-    return ______
+    return (1012*3 +2024 -3036 )
 

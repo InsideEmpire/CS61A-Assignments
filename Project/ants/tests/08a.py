@@ -5,7 +5,7 @@ test = {
     {
       'cases': [
         {
-          'answer': 'cf13df85d8ffea8b7928c6f0f860c5e1',
+          'answer': "In the ContainerAnt's ant_contained instance attribute",
           'choices': [
             "In the ContainerAnt's ant_contained instance attribute",
             "In the ContainerAnt's ant_contained class attribute",
@@ -13,12 +13,12 @@ test = {
             "Nowhere, a ContainerAnt has no knowledge of the ant that it's protecting"
           ],
           'hidden': False,
-          'locked': True,
+          'locked': False,
           'multiline': False,
           'question': 'Where is the ant contained by a ContainerAnt stored?'
         },
         {
-          'answer': '22a2c7eb1d7adee7ea4eb970d3cc09e9',
+          'answer': 'By protecting the ant from Bees and allowing it to perform its original action',
           'choices': [
             'By protecting the ant from Bees and allowing it to perform its original action',
             'By attacking Bees that try to attack it',
@@ -26,7 +26,7 @@ test = {
             'By allowing Bees to pass without attacking'
           ],
           'hidden': False,
-          'locked': True,
+          'locked': False,
           'multiline': False,
           'question': 'How does a ContainerAnt guard its ant?'
         }
@@ -43,14 +43,12 @@ test = {
           >>> container3 = ContainerAnt(3)
           >>> throw_long = LongThrower(1)
           >>> container.can_contain(container2)
-          03456a09f22295a39ca84d133a26f63d
-          # locked
+          False
           >>> container3.can_contain(throw_long)
-          c7a88a0ffd3aef026b98eef6e7557da3
-          # locked
+          True
           """,
           'hidden': False,
-          'locked': True,
+          'locked': False,
           'multiline': False
         },
         {
@@ -58,28 +56,24 @@ test = {
           >>> container = ContainerAnt(2)
           >>> friend = HungryAnt()
           >>> container.ant_contained is None
-          c7a88a0ffd3aef026b98eef6e7557da3
-          # locked
+          True
           >>> container.store_ant(friend)
           >>> container.ant_contained is friend
-          c7a88a0ffd3aef026b98eef6e7557da3
-          # locked
+          True
           """,
           'hidden': False,
-          'locked': True,
+          'locked': False,
           'multiline': False
         },
         {
           'code': r"""
           >>> container = ContainerAnt(2)
           >>> container.ant_contained is not None
-          03456a09f22295a39ca84d133a26f63d
-          # locked
+          False
           >>> friend = HungryAnt()
           >>> container.store_ant(friend)
           >>> container.ant_contained is friend
-          c7a88a0ffd3aef026b98eef6e7557da3
-          # locked
+          True
           >>> place = gamestate.places["tunnel_0_0"]
           >>> place.add_insect(container)
           >>> friend.place = place
@@ -87,14 +81,12 @@ test = {
           >>> place.add_insect(bee)
           >>> container.action(gamestate)  # Container holds a HungryAnt that loves to eat!
           >>> bee.health
-          73b94a1326ae2e803c3421016112207b
-          # locked
+          0
           >>> container.can_contain(FireAnt()) # Container already holds another ant!
-          03456a09f22295a39ca84d133a26f63d
-          # locked
+          False
           """,
           'hidden': False,
-          'locked': True,
+          'locked': False,
           'multiline': False
         },
         {

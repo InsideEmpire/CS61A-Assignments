@@ -5,7 +5,7 @@ test = {
     {
       'cases': [
         {
-          'answer': 'df9239b5516819d074706715cb1822fe',
+          'answer': 'A TankAnt does damage to all Bees in its place each turn',
           'choices': [
             'A TankAnt does damage to all Bees in its place each turn',
             'A TankAnt has greater health than a BodyguardAnt',
@@ -13,7 +13,7 @@ test = {
             'A TankAnt increases the damage of the ant it contains'
           ],
           'hidden': False,
-          'locked': True,
+          'locked': False,
           'multiline': False,
           'question': r"""
           Besides costing more to place, what is the only difference between a
@@ -30,18 +30,15 @@ test = {
           'code': r"""
           >>> # Testing TankAnt parameters
           >>> TankAnt.food_cost
-          50ae32be3e31df6c59633df7fdfb3a72
-          # locked
+          6
           >>> TankAnt.damage
-          d89cf7c79d5a479b0f636734143ed5e6
-          # locked
+          1
           >>> tank = TankAnt()
           >>> tank.health
-          20d533d3e06345c8bd7072212867f2d1
-          # locked
+          2
           """,
           'hidden': False,
-          'locked': True,
+          'locked': False,
           'multiline': False
         },
         {

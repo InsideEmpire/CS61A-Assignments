@@ -49,14 +49,21 @@ class VendingMachine:
     """
     def __init__(self, product, price):
         """Set the product and its price, as well as other instance attributes."""
-        "*** YOUR CODE HERE ***"
+        self.product = product
+        self.price = price
+        self.stock = 0
+        self.balance = 0
 
+       
     def restock(self, n):
         """Add n to the stock and return a message about the updated stock level.
 
         E.g., Current candy stock: 3
         """
-        "*** YOUR CODE HERE ***"
+        self.stock += n
+        return f"Current {self.product} stock: {self.stock}"
+
+
 
     def add_funds(self, n):
         """If the machine is out of stock, return a message informing the user to restock
@@ -68,7 +75,10 @@ class VendingMachine:
 
         E.g., Current balance: $4
         """
-        "*** YOUR CODE HERE ***"
+        if self.stock == 0:
+            return f"Nothing left to vend. Please restock. Here is your ${n}."
+        self.balance += n
+        return f'Current balance: ${self.balance}'
 
     def vend(self):
         """Dispense the product if there is sufficient stock and funds and
@@ -81,7 +91,21 @@ class VendingMachine:
         E.g., Nothing left to vend. Please restock.
               Please add $3 more funds.
         """
-        "*** YOUR CODE HERE ***"
+        if self.stock ==0:
+            return  f'Nothing left to vend. Please restock.'
+        needed = self.price - self.balance 
+        if needed > 0:
+            return f'Please add ${needed} more funds.'
+        change = self.balance - self.price  
+        self.stock -= 1  
+        self.balance = 0  
+        if change == 0:
+            return f'Here is your {self.product}.'
+        else:
+            return f'Here is your {self.product} and ${change} change.'
+        
+        
+        
 
 
 def store_digits(n):
@@ -103,8 +127,11 @@ def store_digits(n):
     >>> cleaned = re.sub(r"#.*\\n", '', re.sub(r'"{3}[\s\S]*?"{3}', '', inspect.getsource(store_digits)))
     >>> print("Do not use str or reversed!") if any([r in cleaned for r in ["str", "reversed"]]) else None
     """
-    "*** YOUR CODE HERE ***"
-
+    result = Link.empty
+    while n > 0:
+        result = Link(n % 10,result)
+        n //= 10
+    return result
 
 def deep_map_mut(func, s):
     """Mutates a deep link s by replacing each item found with the
@@ -125,8 +152,13 @@ def deep_map_mut(func, s):
     >>> print(link1)
     <9 <16> 25 36>
     """
-    "*** YOUR CODE HERE ***"
-
+    if s is Link.empty:
+        return None
+    elif isinstance(s.first, Link):
+        deep_map_mut(func, s.first)
+    else:
+        s.first = func(s.first)
+    deep_map_mut(func, s.rest)
 
 def two_list(vals, counts):
     """
@@ -146,7 +178,23 @@ def two_list(vals, counts):
     >>> c
     Link(1, Link(1, Link(3, Link(3, Link(2)))))
     """
-    "*** YOUR CODE HERE ***"
+    # 哨兵节点（占位符），避免处理空链表初始状态
+    sentinel = Link(None)
+    # current 指针：始终指向当前链表的最后一个节点
+    current = sentinel
+    
+    # 外层循环：遍历每个 (值, 重复次数) 对
+    for val, count in zip(vals, counts):
+        # 内层循环：重复 count 次，添加 val 到链表
+        for _ in range(count):
+            # 创建新节点，添加到 current 的后面
+            current.rest = Link(val)
+            # 更新 current 到新的最后一个节点
+            current = current.rest
+    
+    # 哨兵节点的 rest 才是真正的链表开头
+    return sentinel.rest
+
 
 
 class Link:
@@ -182,6 +230,7 @@ class Link:
         else:
             rest_repr = ''
         return 'Link(' + repr(self.first) + rest_repr + ')'
+
 
     def __str__(self):
         string = '<'

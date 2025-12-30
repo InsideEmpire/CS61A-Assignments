@@ -10,54 +10,41 @@ test = {
           >>> # If the code would error, type Error
           >>> s = [6, 7, 8]
           >>> print(s.append(6))
-          84065bc2161626528de8ac041e7b4659
-          # locked
+          None
           >>> s
-          ee5bbac9b7c275f4e302977fc4fa36cf
-          # locked
+          [6, 7, 8, 6]
           >>> s.insert(0, 9)
           >>> s
-          83a4325e933b3579e994d93825052779
-          # locked
+          [9, 6, 7, 8, 6]
           >>> x = s.pop(1)
           >>> s
-          0796af3f349d61609034bb7d27ec8028
-          # locked
+          [9, 7, 8, 6]
           >>> s.remove(x)
           >>> s
-          bcfc5b735efb7da84d01a012acd2817d
-          # locked
+          [9, 7, 8]
           >>> a, b = s, s[:]
           >>> a is s
-          4975a2633e94dd9ea1ce929c1df08a3b
-          # locked
+          True
           >>> b == s
-          4975a2633e94dd9ea1ce929c1df08a3b
-          # locked
+          True
           >>> b is s
-          ac667055c8e3c84ad7260b0fefa2e007
-          # locked
+          False
           >>> a.pop()
-          1399d9a7e3e505d23edf2a8008d52474
-          # locked
+          8
           >>> a + b
-          75c70659bcfa1183c7fa83ac12489296
-          # locked
+          [9, 7, 9, 7, 8]
           >>> s = [3]
           >>> s.extend([4, 5])
           >>> s
-          64a560a48df30fb585341a84030995f3
-          # locked
+          [3, 4, 5]
           >>> a
-          ebbc4ce3f02bb524db6606ccd8bb5438
-          # locked
+          [9, 7]
           >>> s.extend([s.append(9), s.append(10)])
           >>> s
-          eb32275e5742fa24d3632207e4fe0e18
-          # locked
+          [3, 4, 5, 9, 10, None, None]
           """,
           'hidden': False,
-          'locked': True,
+          'locked': False,
           'multiline': False
         }
       ],

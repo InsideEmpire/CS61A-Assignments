@@ -11,29 +11,23 @@ test = {
           >>> words_and_times = time_per_word(words, p)
           >>> words, times = words_and_times['words'], words_and_times['times']
           >>> words
-          cb2f2c266cb3877baa089f61e5a837aa
-          # locked
+          ['This', 'is', 'fun']
           >>> times
-          51bfb58e6937805de0ca09433bf01b86
-          # locked
+          [[3, 2, 1], [4, 2, 3]]
           >>> p = [[0, 2, 3], [2, 4, 7]]
           >>> words_and_times =time_per_word(['hello', 'world'], p)
           >>> words, times = words_and_times['words'], words_and_times['times']
           >>> words
-          759f3d48bd44b072ef7c7a8c15e5971c
-          # locked
+          ['hello', 'world']
           >>> words[1]
-          84241872daa764701a0204493e7f77dc
-          # locked
+          'world'
           >>> times
-          365035275c0bf05d33d2c6f6a262b9a7
-          # locked
+          [[2, 1], [2, 3]]
           >>> times[0][1]
-          ab2a11320b4b5b0c2f1791ff06177e7f
-          # locked
+          1
           """,
           'hidden': False,
-          'locked': True,
+          'locked': False,
           'multiline': False
         },
         {

@@ -5,7 +5,7 @@ test = {
     {
       'cases': [
         {
-          'answer': '7a81f10493cb9dd2a778afa061e3edd5',
+          'answer': 'When exactly one of the Ant instances is a container and the container ant does not already contain another ant',
           'choices': [
             r"""
             When exactly one of the Ant instances is a container and the
@@ -16,12 +16,12 @@ test = {
             'There can never be two Ant instances in the same place'
           ],
           'hidden': False,
-          'locked': True,
+          'locked': False,
           'multiline': False,
           'question': 'When can a second Ant be added to a place that already contains an Ant?'
         },
         {
-          'answer': '9ee6782d61a987d40e66726eb2354093',
+          'answer': 'The Container Ant',
           'choices': [
             'The Container Ant',
             'The Ant being contained',
@@ -29,7 +29,7 @@ test = {
             'Whichever Ant was placed there first'
           ],
           'hidden': False,
-          'locked': True,
+          'locked': False,
           'multiline': False,
           'question': r"""
           If two Ants occupy the same Place, what is stored in that place's ant
@@ -37,7 +37,7 @@ test = {
           """
         },
         {
-          'answer': 'c9e4559526ed96dcae3a8a67e48f2539',
+          'answer': 'The Ant instance that is in the same place as itself',
           'choices': [
             'The Ant instance that is in the same place as itself',
             'The Ant instance in the place closest to its own place',
@@ -45,7 +45,7 @@ test = {
             'All the Ant instances in the gamestate'
           ],
           'hidden': False,
-          'locked': True,
+          'locked': False,
           'multiline': False,
           'question': 'Which Ant does a ContainerAnt guard?'
         }

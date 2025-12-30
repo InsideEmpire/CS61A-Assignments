@@ -8,35 +8,26 @@ test = {
           'code': r"""
           >>> big_limit = 10
           >>> furry_fixes("car", "cad", big_limit)
-          ab2a11320b4b5b0c2f1791ff06177e7f
-          # locked
+          1
           >>> furry_fixes("this", "that", big_limit)
-          afd44fb791277b75e0e049a925d0aca9
-          # locked
+          2
           >>> furry_fixes("one", "two", big_limit)
-          e527e6a0cb8c2f61565ec262c971fdb2
-          # locked
+          3
           >>> furry_fixes("from", "form", big_limit)
-          afd44fb791277b75e0e049a925d0aca9
-          # locked
+          2
           >>> furry_fixes("awe", "awesome", big_limit)
-          35e6b5e067b7c71fa90089f473098eee
-          # locked
+          4
           >>> furry_fixes("awful", "awesome", big_limit)
-          aaee222654aa8ef35cb2dcab0e8bda9e
-          # locked
+          5
           >>> furry_fixes("awful", "awesome", 3) > 3
-          58329c8802dc9e6dbcfae1a1b36943ca
-          # locked
+          True
           >>> furry_fixes("awful", "awesome", 4) > 4
-          58329c8802dc9e6dbcfae1a1b36943ca
-          # locked
+          True
           >>> furry_fixes("awful", "awesome", 5) > 5
-          ad9aa39afb4c84848fb7d03dc5233954
-          # locked
+          False
           """,
           'hidden': False,
-          'locked': True,
+          'locked': False,
           'multiline': False
         },
         {

@@ -13,7 +13,12 @@ def composite_identity(f, g):
     >>> b1(4)                            # (4 + 1) ** 2 != 4 ** 2 + 1
     False
     """
-    "*** YOUR CODE HERE ***"
+    def reh(x):
+        if f(g(x)) == g(f(x)):
+            return True
+        else:
+            return False 
+    return reh
 
 
 def sum_digits(y):
@@ -59,7 +64,13 @@ def count_cond(condition):
     >>> count_primes(20)   # 2, 3, 5, 7, 11, 13, 17, 19
     8
     """
-    "*** YOUR CODE HERE ***"
+    def num (N):
+        total = 0
+        for i in range(1, N + 1):
+            if condition(N, i):
+                total += 1
+        return total
+    return num
 
 
 def multiple(a, b):
@@ -70,8 +81,12 @@ def multiple(a, b):
     >>> multiple(14, 21)
     42
     """
-    "*** YOUR CODE HERE ***"
-
+    #算最大公约数
+    def gcd(x, y):
+        while y != 0:
+            x, y = y, x % y
+        return x
+    return (a * b) // gcd(a, b)  #最小公倍数公式
 
 
 def cycle(f1, f2, f3):
@@ -100,5 +115,15 @@ def cycle(f1, f2, f3):
     >>> do_two_cycles(1)
     19
     """
-    "*** YOUR CODE HERE ***"
-
+    def g(n):
+        def h(x):
+            for i in range(n):
+                if n % 3 == 0:
+                     zhi = f1(x)
+                elif n % 3 == 1:
+                     zhi = f2(x)
+                else:
+                    zhi = f3(x)
+            return zhi 
+        return h
+    return g

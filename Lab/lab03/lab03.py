@@ -14,8 +14,8 @@ def print_if(s, f):
     None
     """
     for x in s:
-        "*** YOUR CODE HERE ***"
-
+        if f(x):
+            print(x)
 
 def close(s, k):
     """Return how many elements of s that are within k of their index.
@@ -30,9 +30,11 @@ def close(s, k):
     >>> close(list(range(10)), 0)
     10
     """
+    assert k >= 0
     count = 0
     for i in range(len(s)):  # Use a range to loop over indices
-        "*** YOUR CODE HERE ***"
+        if abs(s[i] - i) <= k:
+            count += 1
     return count
 
 
@@ -47,7 +49,7 @@ def close_list(s, k):
     >>> close_list(t, 2)  # 2, 3, 4, and 5 are all within 2 of their index
     [2, 4, 3, 5]
     """
-    return [___ for i in range(len(s)) if ___]
+    return [s[i] for i in range(len(s)) if abs(s[i] - i <= k)]
 
 
 from math import sqrt
@@ -63,7 +65,8 @@ def squares(s):
     >>> squares(seq)
     []
     """
-    return [___ for n in s if ___]
+    # round() 是 Python 内置函数，作用是 将数字四舍五入到指定的小数位数（默认四舍五入到整数）
+    return [round(n ** 0.5) for n in s if n == round(n ** 0.5) ** 2]
 
 
 def double_eights(n):
@@ -87,8 +90,13 @@ def double_eights(n):
     >>> check(LAB_SOURCE_FILE, 'double_eights', ['While', 'For'])
     True
     """
-    "*** YOUR CODE HERE ***"
-
+    one, next_one = n %10 , n //10 %10
+    if one == next_one == 8:
+        return True
+    elif n < 10:
+        return False
+    n = n // 10
+    return double_eights(n)
 
 def make_onion(f, g):
     """Return a function can_reach(x, y, limit) that returns
@@ -116,10 +124,10 @@ def make_onion(f, g):
     """
     def can_reach(x, y, limit):
         if limit < 0:
-            return ____
+            return False
         elif x == y:
-            return ____
+            return True
         else:
-            return can_reach(____, ____, limit - 1) or can_reach(____, ____, limit - 1)
+            return can_reach(f(x), y, limit - 1) or can_reach(g(x), y, limit - 1)
     return can_reach
 
